@@ -45,10 +45,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        transparent 50%,
-        rgba(0, 0, 0, 0.25) 50%
-    );
+    background: linear-gradient(transparent 50%,
+            rgba(0, 0, 0, 0.25) 50%);
     background-size: 100% 4px;
     z-index: 100;
     pointer-events: none;
@@ -56,8 +54,13 @@ body {
 }
 
 @keyframes scan {
-    from { background-position: 0 0; }
-    to { background-position: 0 100%; }
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 100%;
+    }
 }
 
 .noise {
@@ -147,9 +150,17 @@ nav a:hover {
     border-radius: 50%;
 }
 
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
+.dot.red {
+    background: #ff5f56;
+}
+
+.dot.yellow {
+    background: #ffbd2e;
+}
+
+.dot.green {
+    background: #27c93f;
+}
 
 .window-title {
     margin-left: 10px;
@@ -186,11 +197,31 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
-.label { color: rgba(255, 255, 255, 0.5); margin-right: 1rem; }
-.value { color: var(--primary-green); font-weight: bold; }
+.label {
+    color: rgba(255, 255, 255, 0.5);
+    margin-right: 1rem;
+}
 
-.blink { animation: blink 1s infinite; }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.value {
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
 
 .cta-btns {
     display: flex;
@@ -242,7 +273,9 @@ section {
     gap: 1rem;
 }
 
-.p-green { color: var(--primary-green); }
+.p-green {
+    color: var(--primary-green);
+}
 
 /* --- Grid & Cards --- */
 .grid-container {
@@ -265,7 +298,64 @@ section {
     border-color: var(--primary-green);
 }
 
-/* --- Skills --- */
+
+
+/* --- Project Specifics --- */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.status-badge {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.status-badge.online {
+    background: rgba(0, 255, 65, 0.2);
+    color: #00ff41;
+    border: 1px solid #00ff41;
+}
+
+.status-badge.beta {
+    background: rgba(255, 255, 0, 0.2);
+    color: yellow;
+    border: 1px solid yellow;
+}
+
+.status-badge.classified {
+    background: rgba(255, 0, 0, 0.2);
+    color: red;
+    border: 1px solid red;
+}
+
+.tech-stack {
+    margin: 1rem 0;
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+}
+
+.btn-text {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: letter-spacing 0.3s ease;
+}
+
+.btn-text:hover {
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px var(--primary-green);
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -320,7 +410,9 @@ section {
     gap: 10px;
 }
 
-.prompt { color: var(--accent-cyan); }
+.prompt {
+    color: var(--accent-cyan);
+}
 
 #terminal-input {
     background: transparent;
@@ -347,11 +439,25 @@ footer {
 }
 
 @keyframes text-flicker {
-    0% { opacity: 0.5; }
-    5% { opacity: 0.2; }
-    10% { opacity: 0.5; }
-    15% { opacity: 0.3; }
-    20% { opacity: 0.5; }
+    0% {
+        opacity: 0.5;
+    }
+
+    5% {
+        opacity: 0.2;
+    }
+
+    10% {
+        opacity: 0.5;
+    }
+
+    15% {
+        opacity: 0.3;
+    }
+
+    20% {
+        opacity: 0.5;
+    }
 }
 
 /* Responsive Mobile */
@@ -381,11 +487,11 @@ footer {
     .skills-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .section-title {
         font-size: 1.8rem;
     }
-    
+
     .terminal-body {
         padding: 1rem;
     }

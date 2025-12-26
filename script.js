@@ -72,11 +72,31 @@ const commands = {
     contact: "Uplink Secure Channel: Reach out via LinkedIn or GitHub. (Form submission simulated)",
     whoami: "You are an authorized visitor exploring the digital workspace of CJPH.",
     status: "System: ACTIVE | Security: HIGH | Encryption: AES-256-GCM",
+    projects: "LOADING ARCHIVES... \n > Network Sniffer v1.0 [ONLINE] \n > Secure Chat Protocol [BETA] \n > Auto-Pentest Bot [CLASSIFIED]",
+    socials: "CONNECTING... \n > GitHub: github.com/Garzooka-Hacking \n > LinkedIn: (End-to-End Encrypted)",
     clear: "CLEAR"
 };
 
+// Audio Intelligence
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+function playBeep(freq = 800, type = 'square', duration = 0.05) {
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + duration);
+}
+
 terminalInput.addEventListener('keydown', (e) => {
+    playBeep(1200, 'sine', 0.03); // Typing sound
     if (e.key === 'Enter') {
+        playBeep(600, 'triangle', 0.1); // Enter sound
         const input = terminalInput.value.toLowerCase().trim();
         const response = commands[input] || `Command not found: ${input}. Type 'help' for options.`;
 
