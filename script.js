@@ -45,7 +45,7 @@ window.addEventListener('resize', () => {
 });
 
 // --- Typing Animation ---
-const nameText = "Carlos Junior Prieto Hermosa";
+const nameText = "Garzooka(Hacking) Senati";
 const typingTarget = document.getElementById('name-typing');
 let charIndex = 0;
 
@@ -67,7 +67,7 @@ const terminalHistory = document.getElementById('terminal-history');
 
 const commands = {
     help: "Available commands: help, about, skills, contact, clear, whoami, status",
-    about: "Carlos Junior Prieto Hermosa: Cybersecurity specialist and developer. Expert in identifying vulnerabilities and building secure, efficient workflows.",
+    about: "Garzooka(Hacking) Senati: Cybersecurity specialist and developer. Expert in identifying vulnerabilities and building secure, efficient workflows.",
     skills: "Mastery in: Python, JavaScript, Pentesting, Data Analysis, Reverse Engineering, and Security Automation.",
     contact: "Uplink Secure Channel: Reach out via LinkedIn or GitHub. (Form submission simulated)",
     whoami: "You are an authorized visitor exploring the digital workspace of CJPH.",
