@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJPH | SysAdmin & CyberSecurity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Fira+Code:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="hacker-theme">
+    <!-- Matrix Background Canvas -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Scanline overlays -->
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="p-green">[</span> CJPH <span class="p-green">]</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about"><span class="cmd">01.</span> identity</a></li>
+                    <li><a href="#skills"><span class="cmd">02.</span> techniques</a></li>
+                    <li><a href="#projects"><span class="cmd">03.</span> archives</a></li>
+                    <li><a href="#terminal"><span class="cmd">04.</span> uplink</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="terminal-box window-glow">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="window-title">root@carlos:~# whoami</span>
+                </div>
+                <div class="terminal-body">
+                    <h1 id="name-typing">Carlos Junior Prieto Hermosa</h1>
+                    <p class="subtitle">>> Cybersecurity Specialist | Full-Stack Developer | Security Analyst</p>
+                    <div class="status-box">
+                        <p><span class="label">STATUS:</span> <span class="value blink">ONLINE</span></p>
+                        <p><span class="label">LOCATION:</span> <span class="value">LATAM / PERU</span></p>
+                        <p><span class="label">LEVEL:</span> <span class="value">99</span></p>
+                    </div>
+                    <div class="cta-btns">
+                        <a href="#projects" class="btn btn-primary">Initial Protocol</a>
+                        <a href="#terminal" class="btn btn-outline">Enter Terminal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title"><span class="p-green">/</span> dossier</h2>
+            <div class="grid-container">
+                <div class="card glass-card">
+                    <h3>Biografía</h3>
+                    <p>Especialista en seguridad informática enfocado en la detección de vulnerabilidades y el desarrollo de sistemas robustos. Apasionado por la ingeniería inversa, el análisis de datos y la creación de soluciones digitales que desafían los estándares convencionales.</p>
+                </div>
+                <div class="card glass-card shadow-green">
+                    <h3>Enfoque</h3>
+                    <p>Mi trabajo combina la precisión técnica con una mentalidad ofensiva/defensiva para proteger activos digitales y optimizar procesos mediante automatización avanzada.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title"><span class="p-green">/</span> repertorio_técnico</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Ciberseguridad</h4>
+                    <ul>
+                        <li>Pentesting Web</li>
+                        <li>Análisis de Vulnerabilidades</li>
+                        <li>Ingeniería Social</li>
+                        <li>Seguridad de Redes</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Desarrollo</h4>
+                    <ul>
+                        <li>Python / Automation</li>
+                        <li>JavaScript / React / Node</li>
+                        <li>SQL / NoSQL Databases</li>
+                        <li>API Security</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Análisis</h4>
+                    <ul>
+                        <li>Análisis de Tendencias</li>
+                        <li>Modelado de Datos</li>
+                        <li>Extracción de Lógica (Reverse)</li>
+                        <li>VBA / Excel Engineering</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="terminal-section">
+            <div id="terminal" class="interactive-terminal">
+                <div class="terminal-header">
+                    <span class="window-title">Uplink Gateway v2.0 - Command Line Interface</span>
+                </div>
+                <div id="terminal-content" class="terminal-content">
+                    <p>Welcome to CJPH Secure Gateway.</p>
+                    <p>Type 'help' for a list of available commands.</p>
+                    <div id="terminal-history"></div>
+                    <div class="terminal-input-line">
+                        <span class="prompt">guest@cjph:~$</span>
+                        <input type="text" id="terminal-input" autofocus spellcheck="false">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Carlos Junior Prieto Hermosa. Todos los derechos reservados.</p>
+        <p class="flicker">SYSTEM_SECURE: ENCRYPTION_ENABLED</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
