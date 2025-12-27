@@ -424,6 +424,55 @@ section {
     outline: none;
 }
 
+/* --- Network Monitor Widget --- */
+.monitor-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 250px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--primary-green);
+    border-radius: 4px;
+    z-index: 1000;
+    padding: 10px;
+    font-family: var(--font-mono);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+}
+
+.monitor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: var(--primary-green);
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--dim-green);
+    padding-bottom: 2px;
+}
+
+.live-dot {
+    width: 6px;
+    height: 6px;
+    background: red;
+    border-radius: 50%;
+    animation: blink 0.5s infinite;
+}
+
+#traffic-canvas {
+    width: 100%;
+    height: 60px;
+    background: rgba(0, 20, 0, 0.5);
+    border: 1px solid var(--dim-green);
+}
+
+.monitor-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;
+    color: var(--accent-cyan);
+    margin-top: 5px;
+}
+
 /* --- Footer --- */
 footer {
     text-align: center;
@@ -494,5 +543,9 @@ footer {
 
     .terminal-body {
         padding: 1rem;
+    }
+
+    .monitor-box {
+        display: none;
     }
 }

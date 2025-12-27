@@ -119,6 +119,68 @@ terminalInput.addEventListener('keydown', (e) => {
     }
 });
 
+// --- Network Traffic Simulation ---
+const trafficCanvas = document.getElementById('traffic-canvas');
+const trafficCtx = trafficCanvas.getContext('2d');
+const packetsVal = document.getElementById('packets-val');
+const latencyVal = document.getElementById('latency-val');
+
+// Set canvas resolution high for sharpness
+trafficCanvas.width = 230;
+trafficCanvas.height = 60;
+
+let trafficData = new Array(50).fill(30); // Baseline traffic
+let packetCount = 0;
+
+function drawTraffic() {
+    // Shift data
+    trafficData.shift();
+    // Generate new random value (simulating bursts)
+    const newValue = Math.random() > 0.9 ? Math.random() * 50 + 10 : Math.random() * 20 + 20;
+    trafficData.push(newValue);
+
+    // Clear
+    trafficCtx.clearRect(0, 0, trafficCanvas.width, trafficCanvas.height);
+
+    // Draw Grid
+    trafficCtx.strokeStyle = 'rgba(0, 255, 65, 0.1)';
+    trafficCtx.lineWidth = 1;
+    trafficCtx.beginPath();
+    for (let i = 0; i < trafficCanvas.width; i += 20) {
+        trafficCtx.moveTo(i, 0);
+        trafficCtx.lineTo(i, trafficCanvas.height);
+    }
+    trafficCtx.stroke();
+
+    // Draw Line
+    trafficCtx.strokeStyle = '#00ff41';
+    trafficCtx.lineWidth = 2;
+    trafficCtx.beginPath();
+    trafficCtx.moveTo(0, trafficCanvas.height - trafficData[0]);
+
+    for (let i = 1; i < trafficData.length; i++) {
+        const x = (i / (trafficData.length - 1)) * trafficCanvas.width;
+        const y = trafficCanvas.height - trafficData[i];
+        trafficCtx.lineTo(x, y);
+    }
+    trafficCtx.stroke();
+
+    // Fill area under line
+    trafficCtx.fillStyle = 'rgba(0, 255, 65, 0.2)';
+    trafficCtx.lineTo(trafficCanvas.width, trafficCanvas.height);
+    trafficCtx.lineTo(0, trafficCanvas.height);
+    trafficCtx.fill();
+
+    // Update stats
+    packetCount += Math.floor(Math.random() * 5);
+    packetsVal.innerText = packetCount;
+    if (Math.random() > 0.8) latencyVal.innerText = Math.floor(Math.random() * 40 + 10) + 'ms';
+
+    requestAnimationFrame(drawTraffic);
+}
+
+drawTraffic();
+
 // Auto-focus terminal on click anywhere in its box
 document.getElementById('terminal').addEventListener('click', () => {
     terminalInput.focus();
