@@ -199,6 +199,37 @@ function drawTraffic() {
 
 drawTraffic();
 
+// --- Simulated Active Connections ---
+const connectionList = document.getElementById('connection-list');
+const baseConnection = `
+    <div class="conn-item secure">
+        <span class="ip">127.0.0.1 (YOU)</span>
+        <span class="status">SECURE</span>
+    </div>
+`;
+
+function simulateConnections() {
+    // 30% chance to show an intruder
+    if (Math.random() > 0.7) {
+        const randomIP = `${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
+        connectionList.innerHTML = baseConnection + `
+            <div class="conn-item warning">
+                <span class="ip">UNK: ${randomIP}</span>
+                <span class="status">SCANNING...</span>
+            </div>
+        `;
+        // Play subtle warning sound if available
+        if (Math.random() > 0.5) playBeep(200, 'sawtooth', 0.1);
+    } else {
+        connectionList.innerHTML = baseConnection;
+    }
+
+    setTimeout(simulateConnections, Math.random() * 4000 + 2000);
+}
+
+// Start simulation after 2 seconds
+setTimeout(simulateConnections, 2000);
+
 // Auto-focus terminal on click anywhere in its box
 document.getElementById('terminal').addEventListener('click', () => {
     terminalInput.focus();

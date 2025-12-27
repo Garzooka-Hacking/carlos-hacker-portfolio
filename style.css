@@ -521,6 +521,30 @@ section {
     margin-top: 5px;
 }
 
+.connection-list {
+    margin-top: 8px;
+    border-top: 1px dashed var(--dim-green);
+    padding-top: 5px;
+    font-size: 0.65rem;
+    max-height: 60px;
+    overflow-y: hidden;
+}
+
+.conn-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.conn-item.secure {
+    color: var(--primary-green);
+}
+
+.conn-item.warning {
+    color: var(--error-red);
+    animation: blink 1s infinite;
+}
+
 /* --- Footer --- */
 footer {
     text-align: center;
