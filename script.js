@@ -199,36 +199,43 @@ function drawTraffic() {
 
 drawTraffic();
 
-// --- Simulated Active Connections ---
-const connectionList = document.getElementById('connection-list');
-const baseConnection = `
-    <div class="conn-item secure">
-        <span class="ip">127.0.0.1 (YOU)</span>
-        <span class="status">SECURE</span>
-    </div>
-`;
+// --- Live Visitor Simulation ---
+const visitorCount = document.getElementById('visitor-count');
+let currentVisitors = 0;
 
-function simulateConnections() {
-    // 30% chance to show an intruder
-    if (Math.random() > 0.7) {
-        const randomIP = `${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
-        connectionList.innerHTML = baseConnection + `
-            <div class="conn-item warning">
-                <span class="ip">UNK: ${randomIP}</span>
-                <span class="status">SCANNING...</span>
-            </div>
-        `;
-        // Play subtle warning sound if available
-        if (Math.random() > 0.5) playBeep(200, 'sawtooth', 0.1);
-    } else {
-        connectionList.innerHTML = baseConnection;
-    }
+// Initialize: Start at 0, jump to 1 (You) quickly
+setTimeout(() => {
+    currentVisitors = 1;
+    updateVisitorDisplay();
+}, 1000);
 
-    setTimeout(simulateConnections, Math.random() * 4000 + 2000);
+function updateVisitorDisplay() {
+    visitorCount.innerText = currentVisitors;
+    visitorCount.style.textShadow = currentVisitors > 1 ? "0 0 10px red" : "none";
+    visitorCount.style.color = currentVisitors > 1 ? "var(--error-red)" : "var(--primary-green)";
 }
 
-// Start simulation after 2 seconds
-setTimeout(simulateConnections, 2000);
+function simulateTrafficFluctuation() {
+    // 20% chance to change visitor count
+    if (Math.random() > 0.8) {
+        const change = Math.random() > 0.5 ? 1 : -1;
+        currentVisitors += change;
+
+        // Bounds: Never below 1 (You are always here), Max 5 (for realism)
+        if (currentVisitors < 1) currentVisitors = 1;
+        if (currentVisitors > 5) currentVisitors = 5;
+
+        updateVisitorDisplay();
+
+        // Sound notification if "new user" enters
+        if (change > 0 && currentVisitors > 1) playBeep(300, 'square', 0.1);
+    }
+
+    setTimeout(simulateTrafficFluctuation, Math.random() * 5000 + 3000);
+}
+
+// Start fluctuation loop
+simulateTrafficFluctuation();
 
 // Auto-focus terminal on click anywhere in its box
 document.getElementById('terminal').addEventListener('click', () => {

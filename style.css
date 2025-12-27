@@ -516,33 +516,23 @@ section {
 .monitor-stats {
     display: flex;
     justify-content: space-between;
-    font-size: 0.6rem;
+    align-items: center;
+    font-size: 0.8rem;
     color: var(--accent-cyan);
     margin-top: 5px;
 }
 
-.connection-list {
-    margin-top: 8px;
-    border-top: 1px dashed var(--dim-green);
-    padding-top: 5px;
-    font-size: 0.65rem;
-    max-height: 60px;
-    overflow-y: hidden;
+.visitor-box {
+    border: 1px solid var(--dim-green);
+    padding: 2px 8px;
+    background: rgba(0, 255, 65, 0.1);
+    border-radius: 2px;
 }
 
-.conn-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2px;
-}
-
-.conn-item.secure {
+.highlight {
     color: var(--primary-green);
-}
-
-.conn-item.warning {
-    color: var(--error-red);
-    animation: blink 1s infinite;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 /* --- Footer --- */
