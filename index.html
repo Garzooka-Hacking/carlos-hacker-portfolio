@@ -17,9 +17,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Fira+Code:wght@300;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 
-<body class="hacker-theme">
+<body class="hacker-theme" data-theme="green">
     <!-- Matrix Background Canvas -->
     <canvas id="matrix-canvas"></canvas>
 
@@ -30,7 +31,7 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <span class="p-green">[</span> CJPH <span class="p-green">]</span>
+                <span class="p-green">[</span> G-H <span class="p-green">]</span>
             </div>
             <nav>
                 <ul>
@@ -40,6 +41,11 @@
                     <li><a href="#terminal"><span class="cmd">04.</span> uplink</a></li>
                 </ul>
             </nav>
+            <div class="theme-switcher">
+                <button class="theme-btn green" onclick="setTheme('green')" title="Hacker Green"></button>
+                <button class="theme-btn red" onclick="setTheme('red')" title="Red Team"></button>
+                <button class="theme-btn blue" onclick="setTheme('blue')" title="Blue Team"></button>
+            </div>
         </div>
     </header>
 

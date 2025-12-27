@@ -23,7 +23,9 @@ const drawMatrix = () => {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = '#00ff41';
+    // Dynamic color based on theme
+    const computedStyle = getComputedStyle(document.documentElement);
+    ctx.fillStyle = computedStyle.getPropertyValue('--primary-green').trim();
     ctx.font = fontSize + 'px monospace';
 
     for (let i = 0; i < rainDrops.length; i++) {
@@ -43,6 +45,13 @@ window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+// --- Theme Switcher ---
+window.setTheme = (theme) => {
+    document.body.setAttribute('data-theme', theme);
+    // Beep confirmation
+    playBeep(400, 'sine', 0.1);
+};
 
 // --- Typing Animation ---
 const nameText = "Garzooka(Hacking) Senati";

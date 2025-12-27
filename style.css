@@ -1,13 +1,61 @@
 :root {
     --bg-color: #050505;
     --terminal-bg: rgba(10, 10, 10, 0.85);
+    /* Default Green */
     --primary-green: #00ff41;
     --dim-green: rgba(0, 255, 65, 0.3);
+    /* Shared */
     --accent-cyan: #00f3ff;
     --error-red: #ff3e3e;
     --warning-yellow: #f1c40f;
     --text-color: #e0e0e0;
     --font-mono: 'Fira Code', 'Share Tech Mono', monospace;
+}
+
+[data-theme="red"] {
+    --primary-green: #ff3e3e;
+    --dim-green: rgba(255, 62, 62, 0.3);
+    --accent-cyan: #ffbd2e;
+    /* Yellow accent for red theme */
+}
+
+[data-theme="blue"] {
+    --primary-green: #00f3ff;
+    --dim-green: rgba(0, 243, 255, 0.3);
+    --accent-cyan: #ffffff;
+    /* White accent for blue theme */
+}
+
+/* --- Theme Switcher --- */
+.theme-switcher {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.theme-btn {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2);
+}
+
+.theme-btn.green {
+    background: #00ff41;
+}
+
+.theme-btn.red {
+    background: #ff3e3e;
+}
+
+.theme-btn.blue {
+    background: #00f3ff;
 }
 
 * {
@@ -667,6 +715,12 @@ footer {
         justify-content: center;
         gap: 10px;
         padding: 0;
+    }
+
+    .theme-switcher {
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
     }
 
     .skills-grid {
