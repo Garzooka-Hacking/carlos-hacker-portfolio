@@ -79,21 +79,21 @@ const terminalInput = document.getElementById('terminal-input');
 const terminalHistory = document.getElementById('terminal-history');
 
 const commands = {
-    help: "Available commands: help, about, skills, contact, clear, whoami, status",
-    about: "Garzooka(Hacking) Senati: Cybersecurity specialist and developer. Expert in identifying vulnerabilities and building secure, efficient workflows.",
-    skills: "Mastery in: Python, JavaScript, Pentesting, Data Analysis, Reverse Engineering, and Security Automation.",
-    contact: "Uplink Secure Channel: Reach out via LinkedIn or GitHub. (Form submission simulated)",
-    whoami: "You are an authorized visitor exploring the digital workspace of CJPH.",
-    status: "System: ACTIVE | Security: HIGH | Encryption: AES-256-GCM",
-    projects: "LOADING ARCHIVES... \n > Network Sniffer v1.0 [ONLINE] \n > Secure Chat Protocol [BETA] \n > Auto-Pentest Bot [CLASSIFIED]",
-    socials: "CONNECTING... \n > GitHub: github.com/Garzooka-Hacking \n > LinkedIn: (End-to-End Encrypted)",
-    sudo_access_granted: "ACCESS GRANTED. \n [!] ROOT PRIVILEGES UNLOCKED. \n [!] WELCOME, OPERATOR. \n [!] SECRET CONTACT: garzooka.ctf@protonmail.com",
-    clear: "CLEAR"
+    ayuda: "Comandos disponibles: ayuda, sobre_mi, habilidades, contacto, limpiar, quien_soy, estado, proyectos, redes",
+    sobre_mi: "Garzooka(Hacking) Senati: Especialista en Ciberseguridad y desarrollador. Experto en identificar vulnerabilidades y construir flujos de trabajo seguros y eficientes.",
+    habilidades: "Dominio en: Python, JavaScript, Pentesting, Análisis de Datos, Ingeniería Inversa y Automatización de Seguridad.",
+    contacto: "Canal Seguro Uplink: Contacta vía LinkedIn o GitHub. (Envío de formulario simulado)",
+    quien_soy: "Eres un visitante autorizado explorando el espacio de trabajo digital de CJPH.",
+    estado: "Sistema: ACTIVO | Seguridad: ALTA | Encriptación: AES-256-GCM",
+    proyectos: "CARGANDO ARCHIVOS... \n > Network Sniffer v1.0 [EN LÍNEA] \n > Secure Chat Protocol [BETA] \n > Auto-Pentest Bot [CLASIFICADO]",
+    redes: "CONECTANDO... \n > GitHub: github.com/Garzooka-Hacking \n > LinkedIn: (Encriptado Extremo-a-Extremo)",
+    sudo_access_granted: "ACCESO CONCEDIDO. \n [!] PRIVILEGIOS DE ROOT DESBLOQUEADOS. \n [!] BIENVENIDO, OPERADOR. \n [!] CONTACTO SECRETO: garzooka.ctf@protonmail.com",
+    limpiar: "LIMPIAR"
 };
 
 // CTF Teaser
-console.log("%c⚠️ SYSTEM ALERT: Unauthorized observer detected.", "color: red; font-size: 16px; font-weight: bold;");
-console.log("%cCan you bypass the firewall? Check the DOM source for backdoors...", "color: #00ff41; font-family: monospace;");
+console.log("%c⚠️ ALERTA DE SISTEMA: Observador no autorizado detectado.", "color: red; font-size: 16px; font-weight: bold;");
+console.log("%c¿Puedes evadir el firewall? Revisa el código fuente en busca de puertas traseras...", "color: #00ff41; font-family: monospace;");
 
 // Audio Intelligence
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -116,13 +116,17 @@ terminalInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         playBeep(600, 'triangle', 0.1); // Enter sound
         const input = terminalInput.value.toLowerCase().trim();
-        const response = commands[input] || `Command not found: ${input}. Type 'help' for options.`;
+        // Check for English alias commands to be helpful, or strictly Spanish. Let's redirect to Spanish.
+        let lookup = input;
+        if (input === 'help') lookup = 'ayuda';
 
-        if (input === 'clear') {
+        const response = commands[lookup] || `Comando no encontrado: ${input}. Escribe 'ayuda' para ver opciones.`;
+
+        if (lookup === 'limpiar' || input === 'clear') {
             terminalHistory.innerHTML = '';
         } else {
             const line = document.createElement('div');
-            line.innerHTML = `<span class="prompt">guest@cjph:~$</span> ${terminalInput.value}`;
+            line.innerHTML = `<span class="prompt">invitado@cjph:~$</span> ${terminalInput.value}`;
             terminalHistory.appendChild(line);
 
             const resLine = document.createElement('div');
