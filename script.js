@@ -78,8 +78,13 @@ const commands = {
     status: "System: ACTIVE | Security: HIGH | Encryption: AES-256-GCM",
     projects: "LOADING ARCHIVES... \n > Network Sniffer v1.0 [ONLINE] \n > Secure Chat Protocol [BETA] \n > Auto-Pentest Bot [CLASSIFIED]",
     socials: "CONNECTING... \n > GitHub: github.com/Garzooka-Hacking \n > LinkedIn: (End-to-End Encrypted)",
+    sudo_access_granted: "ACCESS GRANTED. \n [!] ROOT PRIVILEGES UNLOCKED. \n [!] WELCOME, OPERATOR. \n [!] SECRET CONTACT: garzooka.ctf@protonmail.com",
     clear: "CLEAR"
 };
+
+// CTF Teaser
+console.log("%c⚠️ SYSTEM ALERT: Unauthorized observer detected.", "color: red; font-size: 16px; font-weight: bold;");
+console.log("%cCan you bypass the firewall? Check the DOM source for backdoors...", "color: #00ff41; font-family: monospace;");
 
 // Audio Intelligence
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
