@@ -487,6 +487,142 @@ footer {
     animation: text-flicker 2s linear infinite;
 }
 
+/* --- Glitch Effect --- */
+.glitch-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch {
+    position: relative;
+    color: var(--primary-green);
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 blue;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(31px, 9999px, 94px, 0);
+    }
+
+    5% {
+        clip: rect(70px, 9999px, 11px, 0);
+    }
+
+    10% {
+        clip: rect(29px, 9999px, 6px, 0);
+    }
+
+    15% {
+        clip: rect(48px, 9999px, 57px, 0);
+    }
+
+    20% {
+        clip: rect(64px, 9999px, 98px, 0);
+    }
+
+    25% {
+        clip: rect(13px, 9999px, 72px, 0);
+    }
+
+    30% {
+        clip: rect(81px, 9999px, 69px, 0);
+    }
+
+    35% {
+        clip: rect(48px, 9999px, 35px, 0);
+    }
+
+    40% {
+        clip: rect(86px, 9999px, 12px, 0);
+    }
+
+    45% {
+        clip: rect(13px, 9999px, 63px, 0);
+    }
+
+    50% {
+        clip: rect(69px, 9999px, 20px, 0);
+    }
+
+    100% {
+        clip: rect(0, 0, 0, 0);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(65px, 9999px, 100px, 0);
+    }
+
+    5% {
+        clip: rect(52px, 9999px, 74px, 0);
+    }
+
+    10% {
+        clip: rect(79px, 9999px, 85px, 0);
+    }
+
+    15% {
+        clip: rect(75px, 9999px, 5px, 0);
+    }
+
+    20% {
+        clip: rect(67px, 9999px, 61px, 0);
+    }
+
+    25% {
+        clip: rect(14px, 9999px, 79px, 0);
+    }
+
+    30% {
+        clip: rect(1px, 9999px, 66px, 0);
+    }
+
+    35% {
+        clip: rect(86px, 9999px, 30px, 0);
+    }
+
+    40% {
+        clip: rect(23px, 9999px, 98px, 0);
+    }
+
+    45% {
+        clip: rect(85px, 9999px, 72px, 0);
+    }
+
+    50% {
+        clip: rect(71px, 9999px, 75px, 0);
+    }
+
+    100% {
+        clip: rect(0, 0, 0, 0);
+    }
+}
+
 @keyframes text-flicker {
     0% {
         opacity: 0.5;

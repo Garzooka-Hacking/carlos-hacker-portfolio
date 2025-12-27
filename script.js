@@ -54,6 +54,10 @@ function typeWriter() {
         typingTarget.innerHTML += nameText.charAt(charIndex);
         charIndex++;
         setTimeout(typeWriter, 100);
+    } else {
+        // Typing finished, enable glitch
+        typingTarget.setAttribute('data-text', nameText);
+        typingTarget.classList.add('glitch');
     }
 }
 
